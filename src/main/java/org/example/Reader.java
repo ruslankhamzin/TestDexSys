@@ -2,7 +2,7 @@ package org.example;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.InputStreamReader;
+
 
 /**
  * Hello world!
@@ -16,15 +16,15 @@ public class Reader
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while(true){
             try {
-                String[] input = reader.readLine().trim().split(" ");
+                String[] input = reader.readLine().split(" ");
                 if(Parsing.isCommand(input[0])){
                     System.out.println("Неизвестная команда. Для справки по командам введите help.");
-                    continue;
+
                 }
                 else {
                     switch (input[0]){
-                        case"add":
-                            if(Parsing.CheckAdd(input.length)) {
+                        case ("add"):
+                            if(Parsing.CheckAdd(input.length-1)) {
                                 for (int i = 2; i < input.length; i = i + 2) {
                                     Commands.add(Double.parseDouble(input[i-1]),Double.parseDouble(input[i]));
                                 }
@@ -34,20 +34,45 @@ public class Reader
                                 continue;
                             }
                             break;
+
                         case "print":
-                            if (input[1].equals('1')||input[1].equals('2')||input[1].equals('3')||input[1].equals('4')){
-                                Commands.print(Integer.parseInt(input[1]));
+                            if(input.length<=1){
+                                Commands.print();
+                                break;
+                            }
+                            for(int i =1;i<input.length;i++)
+                            if (input[i].equals("1") || input[i].equals("2") || input[i].equals("3") || input[i].equals("4")){
+                                Commands.print(input[i]);
                             }
                             else {
-                                Commands.print();
+                                System.out.println("Неизвестная группа");
                             }
+
                             break;
+                        case "clear":
+                            Commands.clear();
+                            break;
+                        case "help":
+                            Commands.help();
+                            break;
+                        case "remove":
+                            if(input.length==2){
+                                Commands.remove(Integer.parseInt(input[1]));
+                            }
+                            if(input.length==3){
+                                Commands.remove(Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+                            }
+                            if(input.length==4){
+                                Commands.remove(Integer.parseInt(input[1]),Integer.parseInt(input[2]),Integer.parseInt(input[3]));
+                            }
+
+
                     }
                 }
             }
             catch (Exception e){
                 System.out.println("Ошибка выполнения.Повторите заново.");
-                continue;
+
 
             }
         }

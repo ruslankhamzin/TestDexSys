@@ -65,19 +65,20 @@ public class Commands {
         }
         System.out.println();
         if(valueXNO.isEmpty()||valueYNO.isEmpty()){
-            System.out.println("Группа 3 пуста");
+            System.out.println("Группа 4 пуста");
         }
         else {
-            System.out.print("Точки без группы: ");
+            System.out.print("Группа 4: ");
             for (int i = 0; i < valueXNO.size(); i++) {
                 System.out.print(valueXNO.get(i) + " " + valueYNO.get(i) + " ");
             }
         }
     }
-    public static void print(int groupID){
+
+    public static void print(String GroupID){
+        int groupID=Integer.parseInt(GroupID);
         switch (groupID){
-            case 1:
-                if(valueX1.isEmpty()||valueY1.isEmpty()){
+            case 1:if(valueX1.isEmpty()||valueY1.isEmpty()){
                     System.out.println("Группа 1 пуста");
                 }
                 else{
@@ -97,7 +98,7 @@ public class Commands {
                 }
             }
             break;
-            case 3: if(valueX3.isEmpty()||valueY3.isEmpty()){
+            case 3:if(valueX3.isEmpty()||valueY3.isEmpty()){
                 System.out.println("Группа 3 пуста");
             }
             else{
@@ -108,10 +109,10 @@ public class Commands {
             }
             break;
             case 4:if(valueXNO.isEmpty()||valueYNO.isEmpty()){
-                System.out.println("Группа 3 пуста");
+                System.out.println("Группа 4 пуста");
             }
             else {
-                System.out.print("Точки без группы: ");
+                System.out.print("Группа 4: ");
                 for (int i = 0; i < valueXNO.size(); i++) {
                     System.out.print(valueXNO.get(i) + " " + valueYNO.get(i) + " ");
                 }
@@ -122,6 +123,116 @@ public class Commands {
         }
 
     }
+    public static void clear(){
+        valueYNO.clear();
+        valueXNO.clear();
+        valueY1.clear();
+        valueX1.clear();
+        valueX2.clear();
+        valueY2.clear();
+        valueX3.clear();
+        valueY3.clear();
+    }
+    public static void help(){
+        System.out.println("add <point> - добавить в память программы точки, координаты передаются парами чисел через пробел");
+        System.out.println("print - напечатать построчно каждую группу");
+        System.out.println("print<group_num> - напечатать точки,входяшие в группу(ы) ");
+        System.out.println("clear - очистить память");
+        System.out.println("remove<group_num> - удалить из памяти все точки,входящие в эту группу.");
+    }
+    public static void remove(int first){
+        switch (first){
+            case 1:valueY1.clear();
+                valueX1.clear();
+                break;
+            case 2:valueX2.clear();
+                valueY2.clear();
+                break;
+            case 3: valueX3.clear();
+                valueY3.clear();
+                break;
+            case 4: valueYNO.clear();
+                valueXNO.clear();
+                break;
+        }
+    }
+    public static void remove(int first,int second){
+        switch (first){
+            case 1:valueY1.clear();
+                valueX1.clear();
+                break;
+            case 2:valueX2.clear();
+                valueY2.clear();
+                break;
+            case 3: valueX3.clear();
+                valueY3.clear();
+                break;
+            case 4: valueYNO.clear();
+                valueXNO.clear();
+                break;
+        }
+        switch (second){
+            case 1:valueY1.clear();
+                valueX1.clear();
+                break;
+            case 2:valueX2.clear();
+                valueY2.clear();
+                break;
+            case 3: valueX3.clear();
+                valueY3.clear();
+                break;
+            case 4: valueYNO.clear();
+                valueXNO.clear();
+                break;
+        }
+
+    }
+    public static void remove(int first,int second,int third){
+        switch (first){
+            case 1:valueY1.clear();
+                valueX1.clear();
+                break;
+            case 2:valueX2.clear();
+                valueY2.clear();
+                break;
+            case 3: valueX3.clear();
+                valueY3.clear();
+                break;
+            case 4: valueYNO.clear();
+                valueXNO.clear();
+                break;
+        }
+        switch (second){
+            case 1:valueY1.clear();
+                valueX1.clear();
+                break;
+            case 2:valueX2.clear();
+                valueY2.clear();
+                break;
+            case 3: valueX3.clear();
+                valueY3.clear();
+                break;
+            case 4: valueYNO.clear();
+                valueXNO.clear();
+                break;
+        }
+        switch (third){
+            case 1:valueY1.clear();
+                valueX1.clear();
+                break;
+            case 2:valueX2.clear();
+                valueY2.clear();
+                break;
+            case 3: valueX3.clear();
+                valueY3.clear();
+                break;
+            case 4: valueYNO.clear();
+                valueXNO.clear();
+                break;
+        }
+
+    }
+
     public static boolean NoGroup(double x,double y){
         if(y>=x){
             return true;
