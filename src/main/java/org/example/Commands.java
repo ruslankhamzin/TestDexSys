@@ -146,12 +146,7 @@ public class Commands {
         switch (first){
             case 1:valueY1.clear();
                 valueX1.clear();
-                for(int i=0;i<valueX2.size();i++){
-                    if (valueX2.get(i).equals(valueX1.get(i)) && valueY2.get(i).equals(valueY1.get(i))){
-                        valueX2.remove(i);
-                        valueY2.remove(i);
-                    }
-                }
+
                 break;
             case 2:valueX2.clear();
                 valueY2.clear();
