@@ -18,7 +18,7 @@ public class Commands {
                valueX1.add(x);
                valueY1.add(y);
            }
-           if (y >= Math.pow(x, 2)) {
+           if (y >= x*x) {
                valueX2.add(x);
                valueY2.add(y);
            }
@@ -73,6 +73,7 @@ public class Commands {
                 System.out.print(valueXNO.get(i) + " " + valueYNO.get(i) + " ");
             }
         }
+        System.out.println();
     }
 
     public static void print(String GroupID){
@@ -121,6 +122,7 @@ public class Commands {
             default:System.out.println("Неизвестная группа");
             break;
         }
+        System.out.println();
 
     }
     public static void clear(){
@@ -144,6 +146,12 @@ public class Commands {
         switch (first){
             case 1:valueY1.clear();
                 valueX1.clear();
+                for(int i=0;i<valueX2.size();i++){
+                    if (valueX2.get(i).equals(valueX1.get(i)) && valueY2.get(i).equals(valueY1.get(i))){
+                        valueX2.remove(i);
+                        valueY2.remove(i);
+                    }
+                }
                 break;
             case 2:valueX2.clear();
                 valueY2.clear();
