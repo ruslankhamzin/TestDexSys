@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Commands {
-    public static String[] commands ={"add","print","remove","clear","help"};
+    public static final String[] commands ={"add","print","remove","clear","help"};
     public static ArrayList<Double> valueX1= new ArrayList<>();
     public static ArrayList<Double> valueY1= new ArrayList<>();
     public static ArrayList<Double> valueX2= new ArrayList<>();
