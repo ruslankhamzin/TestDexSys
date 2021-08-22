@@ -22,7 +22,7 @@ public class Commands {
                valueX2.add(x);
                valueY2.add(y);
            }
-           if (y >= Math.pow(x, 3)) {
+           if (y >= x*x*x) {
                valueX3.add(x);
                valueY3.add(y);
            }
